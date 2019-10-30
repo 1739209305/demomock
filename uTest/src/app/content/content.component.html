@@ -1,0 +1,408 @@
+ <form [formGroup]="reactiveForm">
+ <mat-tab-group mat-align-tabs="center" animationDuration="2000ms">
+    <mat-tab label="(P)Applicant">
+    <mat-card id="card">
+		<mat-card-content>
+		<mat-icon>perm_identity</mat-icon>
+		<span>Personal Information</span>
+		<mat-divider [inset]="true"></mat-divider>
+
+			<div fxLayout="row wrap">
+				<!-- 使用layout布局 fxLayoutGap="20px"是间距-->
+			  <mat-form-field class="example-full-width" fxFlex.gt-md="20" fxFlex.gt-sm="20" fxFlex.get-lg="15">
+				    <input matInput placeholder="Last name*" [formControl]="inputFormControl1"
+				           [errorStateMatcher]="matcher" formControlName="LastName">
+				    <mat-error *ngIf="inputFormControl1.hasError('required')">
+				      Last name is <strong>required</strong>
+				    </mat-error>
+			  </mat-form-field>
+			
+			
+			    <mat-form-field class="example-full-width" fxFlex.gt-md="20" fxFlex.gt-sm="20" fxFlex.get-lg="15">
+				    <input matInput placeholder="First name*" [formControl]="inputFormControl2"
+				           [errorStateMatcher]="matcher">
+				    <mat-error *ngIf="inputFormControl2.hasError('required')">
+				      First name is <strong>required</strong>
+				    </mat-error>
+			  </mat-form-field>
+		 	
+			   <mat-form-field class="example-full-width" fxFlex.gt-md="20" fxFlex.gt-sm="20" fxFlex.get-lg="15">
+				    <input matInput placeholder="Local English Last name*" [formControl]="inputFormControl3"
+				           [errorStateMatcher]="matcher">
+				    <mat-error *ngIf="inputFormControl3.hasError('required')">
+				      Local English Last name is <strong>required</strong>
+				    </mat-error>
+			  </mat-form-field>
+		 	
+			 	<mat-form-field class="example-full-width" fxFlex.gt-md="20" fxFlex.gt-sm="20" fxFlex.get-lg="15">
+				    <input matInput placeholder="Local English First name*" [formControl]="inputFormControl4"
+				           [errorStateMatcher]="matcher" fxFlex.gt-sm="20" fxFlex.get-lg="15">
+				    <mat-error *ngIf="inputFormControl4.hasError('required')">
+				      Local English First name is <strong>required</strong>
+				    </mat-error>
+		  		</mat-form-field>
+		 	
+			 	 <mat-form-field fxFlex.gt-md="20" fxFlex.gt-sm="20" fxFlex.get-lg="15">
+				  <mat-label>Sex</mat-label>
+				  <mat-select>
+				    <mat-option *ngFor="let sex of sex" [value]="sex.value">
+				      {{sex.viewValue}}
+				    </mat-option>
+				  </mat-select>
+				 </mat-form-field>
+		 	
+		 		<mat-form-field fxFlex.gt-md="20" fxFlex.gt-sm="20" fxFlex.get-lg="15">
+				  <mat-label>Nationality</mat-label>
+				  <mat-select>
+				    <mat-option *ngFor="let Nationality of Nationality" [value]="Nationality.value">
+				      {{Nationality.viewValue}}
+				    </mat-option>
+				  </mat-select>
+				</mat-form-field>
+		 	
+		 		<mat-form-field fxFlex.gt-md="20" fxFlex.gt-sm="20" fxFlex.get-lg="15">
+				  <input matInput [matDatepicker]="picker" placeholder="Date of Birth">
+				  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+				  <mat-datepicker #picker></mat-datepicker>
+				</mat-form-field>
+		 	
+		 		<mat-form-field fxFlex.gt-md="20" fxFlex.gt-sm="20" fxFlex.get-lg="15">
+				  <mat-label>Material Status</mat-label>
+				  <mat-select>
+				    <mat-option *ngFor="let Material of Material" [value]="Material.value">
+				      {{Material.viewValue}}
+				    </mat-option>
+				  </mat-select>
+				 </mat-form-field>
+		 	
+		 		 <mat-form-field fxFlex.gt-md="20" fxFlex.gt-sm="20" fxFlex.get-lg="15">
+				  <mat-label>Educational Level</mat-label>
+				  <mat-select>
+				    <mat-option *ngFor="let Educational of Educational" [value]="Educational.value">
+				      {{Educational.viewValue}}
+				    </mat-option>
+				  </mat-select>
+				 </mat-form-field>
+		 	
+		 		 <mat-form-field fxFlex.gt-md="20" fxFlex.gt-sm="20" fxFlex.get-lg="15">
+				  <mat-label>Customer ID Proof</mat-label>
+				  <mat-select>
+				    <mat-option *ngFor="let CustomerId of CustomerIDProof" [value]="CustomerId.value">
+				      {{CustomerId.viewValue}}
+				    </mat-option>
+				  </mat-select>
+				 </mat-form-field>
+		 	
+		 		<mat-form-field fxFlex.gt-md="20" class="example-full-width" fxFlex.gt-sm="20" fxFlex.get-lg="15">
+				   <input matInput placeholder="ID Numer*" [formControl]="inputFormControl5"
+				           [errorStateMatcher]="matcher">
+				   <!--  <mat-hint>Errors appear instantly!</mat-hint> -->
+				   <mat-error *ngIf="inputFormControl5.hasError('required')">
+				      ID Numer is <strong>required</strong>
+				   </mat-error>
+				 </mat-form-field>
+		 	
+		 		<mat-form-field fxFlex.gt-md="20" fxFlex.gt-sm="20" fxFlex.get-lg="15">
+				  <input matInput [matDatepicker]="picker2" placeholder="Date of Issue">
+				  <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+				  <mat-datepicker #picker2></mat-datepicker>
+				</mat-form-field>
+		 	
+		 		<mat-form-field fxFlex.gt-md="20" fxFlex.gt-sm="20" fxFlex.get-lg="15">
+				  <input matInput [matDatepicker]="picker3" placeholder="Expiry Date">
+				  <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
+				  <mat-datepicker #picker3></mat-datepicker>
+				</mat-form-field>  
+		</div>
+
+		
+		<mat-icon>work</mat-icon>
+		<span>Employment Information</span>
+		<mat-divider [inset]="true"></mat-divider>
+			<div fxLayout="wrap row">
+		
+				 <mat-form-field class="example-full-width" fxFlex.gt-md="20" fxFlex.gt-sm="20" fxFlex.get-lg="15">
+				    <input matInput placeholder="Company Name*" [formControl]="inputFormControl6"
+				           [errorStateMatcher]="matcher">
+				   <!--  <mat-hint>Errors appear instantly!</mat-hint> -->
+				    <mat-error *ngIf="inputFormControl6.hasError('required')">
+				      Company Name is <strong>required</strong>
+				    </mat-error>
+				 </mat-form-field>
+			
+				<mat-form-field class="example-full-width" fxFlex.gt-md="20" fxFlex.gt-sm="20" fxFlex.get-lg="15">
+				    <input matInput placeholder="Declared Income*" [formControl]="inputFormControl7"
+				           [errorStateMatcher]="matcher">
+				   <!--  <mat-hint>Errors appear instantly!</mat-hint> -->
+				    <mat-error *ngIf="inputFormControl7.hasError('required')">
+				      Declared Income is <strong>required</strong>
+				    </mat-error>
+				 </mat-form-field>
+			
+				<mat-form-field fxFlex.gt-md="20" fxFlex.gt-sm="20" fxFlex.get-lg="15">
+				  <mat-label>Nature of Business</mat-label>
+				  <mat-select>
+				    <mat-option *ngFor="let Business of Business" [value]="Business.value">
+				      {{Business.viewValue}}
+				    </mat-option>
+				  </mat-select>
+				 </mat-form-field>
+			
+				 <mat-form-field fxFlex.gt-md="20" fxFlex.gt-sm="20" fxFlex.get-lg="15">
+				  <mat-label>Occupation Status</mat-label>
+				  <mat-select>
+				    <mat-option *ngFor="let Occupation of Occupation" [value]="Occupation.value">
+				      {{Occupation.viewValue}}
+				    </mat-option>
+				  </mat-select>
+				 </mat-form-field>
+			
+				<mat-form-field fxFlex.gt-md="20" fxFlex.gt-sm="20" fxFlex.get-lg="15">
+				  <mat-label>Occupation Code</mat-label>
+				  <mat-select>
+				    <mat-option *ngFor="let Code of Code" [value]="Code.value">
+				      {{Code.viewValue}}
+				    </mat-option>
+				  </mat-select>
+				 </mat-form-field>
+			
+				<mat-form-field fxFlex.gt-md="20" fxFlex.gt-sm="20" fxFlex.get-lg="15">
+				  <mat-label>Department</mat-label>
+				  <mat-select>
+				    <mat-option *ngFor="let Department of Department" [value]="Department.value">
+				      {{Department.viewValue}}
+				    </mat-option>
+				  </mat-select>
+				 </mat-form-field>
+			
+				 <mat-form-field fxFlex.gt-md="20" fxFlex.gt-sm="20" fxFlex.get-lg="15">
+				  <mat-label>Job Title</mat-label>
+				  <mat-select>
+				    <mat-option *ngFor="let Job of Job" [value]="Job.value">
+				      {{Job.viewValue}}
+				    </mat-option>
+				  </mat-select>
+				 </mat-form-field>
+			
+				<mat-form-field class="example-full-width" fxFlex.gt-md="20" fxFlex.gt-sm="20" fxFlex.get-lg="15">
+			    <input matInput placeholder="Years in Employment*" [formControl]="inputFormControl8"
+			           [errorStateMatcher]="matcher">
+			   <!--  <mat-hint>Errors appear instantly!</mat-hint> -->
+			    <mat-error *ngIf="inputFormControl8.hasError('required')">
+			      Years in Employment is <strong>required</strong>
+			    </mat-error>
+			 </mat-form-field>
+			
+				<mat-form-field class="example-full-width" fxFlex.gt-md="20" fxFlex.gt-sm="20" fxFlex.get-lg="15">
+				    <input matInput placeholder="Months in Employment*" [formControl]="inputFormControl9"
+				           [errorStateMatcher]="matcher">
+				   <!--  <mat-hint>Errors appear instantly!</mat-hint> -->
+				    <mat-error *ngIf="inputFormControl9.hasError('required')">
+				      Years in Employment is <strong>required</strong>
+				    </mat-error>
+				 </mat-form-field>
+		</div>
+	    
+		<mat-icon>settings_phone</mat-icon>
+		<span>Contact Information</span>
+		<mat-divider [inset]="true"></mat-divider>
+			<div fxLayout="wrap row">
+				<mat-form-field class="example-full-width" fxFlex.gt-md="20" fxFlex.gt-sm="20" fxFlex.get-lg="15">
+				    <input matInput placeholder="Email address1*" [formControl]="inputFormControl10"
+				           [errorStateMatcher]="matcher">
+				    <mat-error *ngIf="inputFormControl10.hasError('email') && !inputFormControl10.hasError('required')">
+				      Please enter a vaild email address
+				    </mat-error>
+				    <mat-error *ngIf="inputFormControl10.hasError('required')">
+				      Email is <strong>required</strong>
+				    </mat-error>
+				 </mat-form-field>
+			
+				<mat-form-field class="example-full-width" fxFlex.gt-md="20" fxFlex.gt-sm="20" fxFlex.get-lg="15">
+				    <input matInput placeholder="Email address2" [formControl]="inputFormControl11"
+				           [errorStateMatcher]="matcher">
+				    <mat-error *ngIf="inputFormControl11.hasError('email') && !inputFormControl11.hasError('required')">
+				      Please enter a valid email address
+				    </mat-error>
+				  </mat-form-field>
+			
+				 <mat-form-field class="example-full-width" fxFlex.gt-md="20" fxFlex.gt-sm="20" fxFlex.get-lg="15">
+				    <input matInput placeholder="Mobile Phone*" [formControl]="inputFormControl12"
+				           [errorStateMatcher]="matcher">
+				   <!--  <mat-hint>Errors appear instantly!</mat-hint> -->
+				    <mat-error *ngIf="inputFormControl12.hasError('required')">
+				      Mobile Phone is <strong>required</strong>
+				    </mat-error>
+				</mat-form-field>
+			
+				<mat-form-field class="example-full-width" fxFlex.gt-md="20" fxFlex.gt-sm="20" fxFlex.get-lg="15">
+				    <input matInput placeholder="Home Phone Number*" [formControl]="inputFormControl13"
+				           [errorStateMatcher]="matcher">
+				   <!--  <mat-hint>Errors appear instantly!</mat-hint> -->
+				    <mat-error *ngIf="inputFormControl13.hasError('required')">
+				      Home Phone Number is <strong>required</strong>
+				    </mat-error>
+				</mat-form-field>
+			
+				<mat-form-field class="example-full-width" fxFlex.gt-md="20" fxFlex.gt-sm="20" fxFlex.get-lg="15">
+				    <input matInput placeholder="Business Phone*" [formControl]="inputFormControl14"
+				           [errorStateMatcher]="matcher">
+				   <!--  <mat-hint>Errors appear instantly!</mat-hint> -->
+				    <mat-error *ngIf="inputFormControl14.hasError('required')">
+				      Business Phone Number is <strong>required</strong>
+				    </mat-error>
+				</mat-form-field>
+			
+				<mat-form-field fxFlex.gt-md="20" fxFlex.gt-sm="20" fxFlex.get-lg="15">
+					<mat-label>Card To</mat-label>
+					<mat-select>
+					  <mat-option *ngFor="let CardTo of CardTo" [value]="CardTo.value">
+					    {{CardTo.viewValue}}
+					  </mat-option>
+					</mat-select>
+				</mat-form-field>
+			
+		
+	
+		<mat-card-subtitle>Address details</mat-card-subtitle>
+		<table mat-table [dataSource]="dataSource">
+			  <ng-container matColumnDef="CityType">
+			    <th mat-header-cell *matHeaderCellDef> City Type </th>
+			    <td mat-cell *matCellDef="let element"> {{element.CityType}} </td>
+			  </ng-container>
+			  <ng-container matColumnDef="ZipCode">
+			    <th mat-header-cell *matHeaderCellDef> Zip Code </th>
+			    <td mat-cell *matCellDef="let element"> {{element.ZipCode}} </td>
+			  </ng-container>
+			  <ng-container matColumnDef="AddressLine1">
+			    <th mat-header-cell *matHeaderCellDef> Address Line1 </th>
+			    <td mat-cell *matCellDef="let element"> {{element.AddressLine1}} </td>
+			  </ng-container>
+			 <ng-container matColumnDef="AddressLine2">
+			   <th mat-header-cell *matHeaderCellDef> Address Line2 </th>
+			   <td mat-cell *matCellDef="let element"> {{element.AddressLine2}} </td>
+			 </ng-container>
+			  <ng-container matColumnDef="AddressLine3">
+			   <th mat-header-cell *matHeaderCellDef> Address Line3 </th>
+			   <td mat-cell *matCellDef="let element"> {{element.AddressLine3}} </td>
+			 </ng-container>
+			 <ng-container matColumnDef="AddressLine4">
+			   <th mat-header-cell *matHeaderCellDef> Address Line4 </th>
+			   <td mat-cell *matCellDef="let element"> {{element.AddressLine4}} </td>
+			 </ng-container>
+			  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+			  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+		</table>
+	
+
+	
+		<mat-card-subtitle>Contact Person</mat-card-subtitle>
+		<table mat-table [dataSource]="dataSource2">
+
+			  <ng-container matColumnDef="Id">
+			    <th mat-header-cell *matHeaderCellDef> Id </th>
+			    <td mat-cell *matCellDef="let element"> {{element.Id}} </td>
+			  </ng-container>
+			  <ng-container matColumnDef="FirstName">
+			    <th mat-header-cell *matHeaderCellDef> FirstName </th>
+			    <td mat-cell *matCellDef="let element"> {{element.FirstName}} </td>
+			  </ng-container>
+			  <ng-container matColumnDef="PhoneNumber">
+			    <th mat-header-cell *matHeaderCellDef> PhoneNumber </th>
+			    <td mat-cell *matCellDef="let element"> {{element.PhoneNumber}} </td>
+			  </ng-container>
+			 <ng-container matColumnDef="Relationship">
+			   <th mat-header-cell *matHeaderCellDef> Relationship </th>
+			   <td mat-cell *matCellDef="let element"> {{element.Relationship}} </td>
+			 </ng-container>
+			  <tr mat-header-row *matHeaderRowDef="displayedColumns2"></tr>
+			  <tr mat-row *matRowDef="let row; columns: displayedColumns2;"></tr>
+		</table>
+	</div>
+		
+		<mat-icon>question_answer</mat-icon>
+		<span>Other Information</span>
+		<mat-divider [inset]="true"></mat-divider>
+			<div fxLayout="row wrap">
+				<mat-form-field class="example-full-width other" fxFlex.gt-md="20" fxFlex.gt-sm="20" fxFlex.get-lg="15">
+				    <input matInput placeholder="Total Credit Cards in Other banks*" [formControl]="inputFormControl15"
+				           [errorStateMatcher]="matcher">
+				    <mat-error *ngIf="inputFormControl15.hasError('required')">
+				      Total Credit Cards in Other banks is <strong>required</strong>
+				    </mat-error>
+				</mat-form-field>
+			
+				<mat-form-field class="example-full-width other" fxFlex.gt-md="20" fxFlex.gt-sm="20" fxFlex.get-lg="15">
+				    <input matInput placeholder="Total Credit Card Limit*" [formControl]="inputFormControl16"
+				           [errorStateMatcher]="matcher">
+				    <mat-error *ngIf="inputFormControl16.hasError('required')">
+				     Total Credit Card Limit is <strong>required</strong>
+				    </mat-error>
+				</mat-form-field>
+			
+				<mat-form-field class="example-full-width other" fxFlex.gt-md="20" fxFlex.gt-sm="20" fxFlex.get-lg="15">
+				    <input matInput placeholder="(Current Employment)Years in Employment*" [formControl]="inputFormControl17"
+				           [errorStateMatcher]="matcher">
+				   <!--  <mat-hint>Errors appear instantly!</mat-hint> -->
+				    <mat-error *ngIf="inputFormControl17.hasError('required')">
+				     Years in Employment is <strong>required</strong>
+				    </mat-error>
+				</mat-form-field>
+			
+				<mat-form-field class="example-full-width other" fxFlex.gt-md="20" fxFlex.gt-sm="20" fxFlex.get-lg="15">
+				    <input matInput placeholder="(Current Employment)Months in Employment*" [formControl]="inputFormControl17"
+				           [errorStateMatcher]="matcher">
+				   <!--  <mat-hint>Errors appear instantly!</mat-hint> -->
+				    <mat-error *ngIf="inputFormControl17.hasError('required')">
+				     Months in Employment is <strong>required</strong>
+				    </mat-error>
+				</mat-form-field>
+			
+				<mat-form-field class="example-full-width other" fxFlex.gt-md="20" fxFlex.gt-sm="20" fxFlex.get-lg="15">
+				    <input matInput placeholder="Threshold*" [formControl]="inputFormControl18"
+				           [errorStateMatcher]="matcher">
+				   <!--  <mat-hint>Errors appear instantly!</mat-hint> -->
+				    <mat-error *ngIf="inputFormControl18.hasError('required')">
+				     Threshold is <strong>required</strong>
+				    </mat-error>
+				</mat-form-field>
+			
+				<mat-form-field fxFlex.gt-md="20" fxFlex.gt-sm="20" fxFlex.get-lg="15">
+					<mat-label>Requested Tenor</mat-label>
+					<mat-select>
+					  <mat-option *ngFor="let Tenor of Tenor" [value]="Tenor.value">
+					    {{Tenor.viewValue}}
+					  </mat-option>
+					</mat-select>
+				</mat-form-field>
+			
+		
+			<div id="submit">
+				<mat-checkbox>Customer Consent Details </mat-checkbox>
+				<button mat-raised-button color="primary">Submit</button>
+			</div>
+		</div>
+	</mat-card-content>
+	</mat-card>
+
+
+    </mat-tab>
+    <mat-tab label="(C)Applicant">Content 2</mat-tab>
+    <mat-tab label="Other">Content 3</mat-tab>
+</mat-tab-group>
+{{reactiveForm.value|json}}
+
+ </form> 
+
+
+
+
+
+
+
+
+
+
+
+
+ 

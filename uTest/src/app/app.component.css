@@ -1,0 +1,109 @@
+#sidemodel {
+  width: 530px;
+}
+app-content{
+    width: 500px;
+}
+
+*{
+margin: 0;
+padding: 0;
+}
+html,body{
+width: 100%;
+height: 100%;
+}
+#box{
+width: 100%;
+height: 600%;
+/* overflow: hidden; */
+}
+
+.left{
+width: 15%;
+overflow: auto;
+ position: fixed;
+left: 0;
+top: 63px; 
+/* float: left; */
+background: rgba(0,0,0,.03);
+height: 1500px;
+}
+/* .left div{
+	height: 200px;
+} */
+#space{
+	height: 800px;
+}
+.middle{
+width: 81%;
+height: 1000px;
+/* background-color: green;  */
+padding-top: 63px;
+float: left;
+margin-left: 15%;
+}
+app-header{
+	position: fixed;
+	left: 0;
+	top: 0;
+	z-index: 1000;
+	width: 100%;
+}
+app-sidenav-left{
+	background-color: yellow;
+}
+
+
+/* 
+设置滚动条样式 */
+::-webkit-scrollbar {
+
+        width: 5px;     
+
+        height: 1px;
+
+    }
+
+::-webkit-scrollbar-thumb {
+
+        border-radius: 5px;
+
+         -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.25);
+
+        background:rgba(0, 0, 0, 0.1)
+
+    }
+
+::-webkit-scrollbar-track {
+
+        -webkit-box-shadow: inset 0 0 2px rgba(0,0,0,0.2);
+
+        border-radius: 10px;
+
+        background: #EDEDED;
+
+}
+#right{
+    float: right;
+    width: 6%;
+    border-left: 1px solid grey;
+}
+
+
+
+#slider{
+    width: 3.8px;
+    margin-right: 20px;
+    height: 800px;
+    float: left;
+    background-color: #999; 
+    cursor: e-resize;
+}
+
+
+
+
+
+
+
